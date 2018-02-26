@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Ejercicio 3 - Tarea DWEC02</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//Alumno: Salvador Manzanares Guillen
+		//Ejercicio 3 - Tarea DWEC04
+
+		function calcular(a,b,op){
+			num1 = parseFloat(a);
+			num2 = parseFloat(b);
+			//Realizamos operación segun el parámetro "op"
+			if (op=='SUM'){
+				return num1 + num2
+			}else if (op=='MULT'){
+				return num1 * num2
+			}else if (op=='POT'){
+				return Math.pow(num1,num2)
+			}else{
+				window.alert('El par\u00E1metro '+ op + ' no es v\u00E1lido')
+			}
+		}
+
+	    //CÓDIGO DE PRUEBA
+	    document.write('El resultado de la operaci\u00F3n 10 + 5 es '+ calcular(10,5,'SUM')+'<br />');
+	    document.write('El resultado de la operaci\u00F3n 10 * 5 es '+ calcular(10,5,'MULT')+'<br />');
+	    document.write('El resultado de la operaci\u00F3n 10^5 es '+ calcular(10,5,'POT')+'<br />');
+	</script>
+</body>
+</html>

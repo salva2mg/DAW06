@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>Ejercicio 2 - Tarea DWEC02</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//Alumno: Salvador Manzanares Guillen
+		//Ejercicio 2 - Tarea DWEC04
+
+		var numeros = new Array();
+		var numOrdenados = new Array();
+		var num; //numero introducido por el usuario
+
+		//Solicitar un numero hasta que el usuario introduzca la cadena vacía
+				do{
+			
+			var num = prompt('Introduczca un n\u00FAmero');
+			//Si el valor introducido es un número lo insertamos al final del array.
+			if (!isNaN(num)) {
+				numeros.push(parseFloat(num));
+			}
+		}
+		while (num!="")
+
+		//Eliminamos el último elemento del array que es la cadena vacía
+	    numeros.pop();
+
+	    document.write('El primer n\u00FAmero tecleado por el usuario es: ' + numeros[0]+'<br />');
+	    document.write('El \u00FAltimo n\u00FAmero tecleado por el usuario es: ' + numeros[numeros.length-1]+'<br />');
+	    
+	    //Ordenadmos el array de menor a mayor, redefiniendo la función de comparación, para ordenarlos en orden ascendente
+	    numOrdenados=numeros.sort(function(a, b){return a-b});
+	    document.write('El mayor n\u00FAmero tecleado por el usuario es: ' + numOrdenados[numOrdenados.length-1]+'<br />');
+	    document.write('El menor n\u00FAmero tecleado por el usuario es: ' + numOrdenados[0]+'<br />');
+
+	    //Calculamos la media aritmética
+	    var media=0;
+	    for (var i in numeros){
+	    	media+= numeros[i]
+	    }
+	    media = media / numeros.length 
+	    document.write('La media aritm\u00E9tica de los n\u00FAmeros tecleados por el usuario es: ' + media +'<br />');
+	</script>
+</body>
+</html>

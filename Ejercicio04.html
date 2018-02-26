@@ -1,0 +1,93 @@
+<html>
+<head>
+	<title>Ejercicio 4 - Tarea DWEC02</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//Alumno: Salvador Manzanares Guillen
+		//Ejercicio 4 - Tarea DWEC04
+
+		function Equipo(nombre){
+			
+			//Propiedades
+
+			//nombre del equipo
+			this.nombre = nombre; 
+			/*Array de jugadores del equipo. Es una array bidimensional. 
+			  Para cada jugador se almacenará su número de dorsal y el nombre*/
+			this.jugadores = new Array();
+
+
+			//Métodos
+			this.agregarJugador = function (dorsal,nombre)
+			{
+				//Si el numero de jugadores es menor que 11, añadimos el jugador
+				if (this.jugadores.length < 11) {
+					this.jugadores.push(new Array(dorsal,nombre));
+				}else window.alert('Ya existen 11 jugadores en el equipo')
+			}
+
+			this.listarJugadores = function ()
+			{
+				document.write('<b>Jugadores del ' + realMadrid.nombre+'</b><br>')
+				//Recorremos el array de jugadores y los vamos imprimiendo.
+				for (var i in this.jugadores)
+				{
+					document.write('Dorsal ' + this.jugadores[i][0] + ': ' + this.jugadores[i][1] + '<br />')
+				}
+	    	
+			}
+
+			this.eliminarJugador = function(dorsal)
+			{
+				//Buscamos en el array el jugador con el dorsal indicado
+				for (var i in this.jugadores)
+					if (this.jugadores[i][0]==dorsal){
+						//Si existe, eliminamos dicho jugador
+						this.jugadores.splice(i,1)
+					}
+
+			}
+
+		}
+
+        //CÓDIGO DE PRUEBA
+
+        //Creamos una instancia del objeto Equipo
+	    var realMadrid = new Equipo('Real Madrid C.F.');
+
+	    //Añadimos 11 jugadores
+	    realMadrid.agregarJugador('1','Keylor Navas');
+	    realMadrid.agregarJugador('12','Marcelo');
+	    realMadrid.agregarJugador('4','Sergio Ramos');
+	    realMadrid.agregarJugador('5','Rafael Varane');
+	    realMadrid.agregarJugador('2','Dani Carvajal');
+	    realMadrid.agregarJugador('8','Toni Kroos');
+	    realMadrid.agregarJugador('14','Casemiro');
+	    realMadrid.agregarJugador('10','Luka Modric');
+	    realMadrid.agregarJugador('22','Isco');
+	    realMadrid.agregarJugador('20','Marco Asensio');
+	    realMadrid.agregarJugador('7','Cristiano Ronaldo');
+	    realMadrid.listarJugadores();
+  
+        document.write('<h4>Eliminamos el jugador con dorsal n\u00BA 8'+'</h4>')
+        realMadrid.eliminarJugador(8);
+        realMadrid.listarJugadores();
+
+        document.write('<h4>A\u00F1adimos dos jugadores m\u00E1s.'+'</h4>')
+        realMadrid.agregarJugador('9','Karim Benzema');
+        realMadrid.agregarJugador('11','Gareth Bale');
+        realMadrid.listarJugadores();
+        document.write('<h4>Solo se a\u00F1adi\u00F3 un jugador m\u00E1s porque se lleg\u00F3 al l\u00EDmite de 11 jugadores'+'</h4>')
+
+        document.write('<h4>Eliminamos el jugador con dorsal n\u00BA 5'+'</h4>')        
+        realMadrid.eliminarJugador(5);
+        document.write('<h4>A\u00F1adimos un nuevo jugador:  Vallejo con dorsal 3'+'</h4>')
+        realMadrid.agregarJugador('3','Vallejo');
+        realMadrid.listarJugadores();
+
+	    
+	</script>
+</body>
+</html>
